@@ -27,8 +27,6 @@ require 'BDConeccion.php';
 
  		$texto = 'INSERT INTO ejercicio (Arbol, Descripcion, IdTipo, FechaLimite) VALUES ("'.$this->arbol.'","'.$this->descripcion.'",'.$this->idtipo.',"'.$this->fecha.'")';
 
- 		//echo $texto;
-
  		$resultado = $this->coneccion->consulta('INSERT INTO ejercicio (Arbol, Descripcion, IdTipo, FechaLimite) VALUES ("'.$this->arbol.'","'.$this->descripcion.'",'.$this->idtipo.',"'.$this->fecha.'")');
  	}
 

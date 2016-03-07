@@ -7,13 +7,12 @@
 	$fecha = $_POST['fechalimite'];
 	$arbol = $_POST['arbol'];
 
-echo $fecha;
 
 	$asignacion = new Asignacion($idtipo, $descripcion, $fecha, $arbol);
 
 	$asignacion->agregarTarea();
 
-	
+	header('Location: ../vista/asignacion_tareas.php');
 
 
 

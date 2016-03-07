@@ -95,9 +95,9 @@
               <div class="row">
                   <h3>Lista de tareas</h3>
                   <div class="list-group">
-                    <button type="button" class="list-group-item">Cras justo odio</button>
-                    <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-                    <button type="button" class="list-group-item">Morbi leo risus</button>
+                    <button type="button" class="list-group-item">tarea prueba 1</button>
+                    <button type="button" class="list-group-item">tarea prueba 2</button>
+                    <button type="button" class="list-group-item">tarea prueba 3</button>
                 </div>
               </div>
 
