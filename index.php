@@ -8,7 +8,9 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
 	</head>
 	<body>
-		<h1 class="text-center">Hello World</h1>
+		<h1 class="text-center">CODE <small>Cursos Online Docente Estudiantil</small></h1>
+
+		<a type="button" class="btn btn-info" href="vista/asignacion_tareas.php">Prueba de asignacion de tareas</a>
 
 
 		<script src="js/jquery-2.2.1.min.js"></script>
