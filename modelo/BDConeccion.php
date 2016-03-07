@@ -5,6 +5,10 @@ CLASE PARA LA CONEXION Y LA GESTION DE LA BASE DE DATOS Y LA PAGINA WEB
 class BDConeccion {
    private $conexion;
 
+   function __construct() {
+     
+   }
+
    /* METODO PARA CONECTAR CON LA BASE DE DATOS*/
    public function conectar()
    {
