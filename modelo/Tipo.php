@@ -16,7 +16,7 @@ class Tipo
 
  		$this->coneccion->conectar();
 
- 		$resultado = $this->coneccion->consulta("select * from tipo");
+ 		$resultado = $this->coneccion->consulta("select * from tipoejercicio");
 
  		//$this->coneccion->disconnect();
 
