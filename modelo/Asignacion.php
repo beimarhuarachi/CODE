@@ -8,16 +8,18 @@ require 'BDConeccion.php';
 
  	private $coneccion;
 
- 	private $idtipo;
+ 	private $tipoEjercicio;
  	private $descripcion;
  	private $fecha;
- 	private $arbol;
+ 	private $recorridoBFS;
+ 	private $recorridoDFS;
  	
- 	function __construct($idtipo, $descripcion, $fecha, $arbol) {
- 		$this->idtipo = $idtipo;
+ 	function __construct($tipoEjercicio, $descripcion, $fecha, $recorridoBFS, $recorridoDFS) {
+ 		$this->tipoEjercicio = $tipoEjercicio;
  		$this->descripcion = $descripcion;
  		$this->fecha = $fecha;
- 		$this->arbol = $arbol;
+ 		$this->recorridoBFS = $recorridoBFS;
+ 		$this->recorridoDFS = $recorridoDFS;
  	}
 
  	public function agregarTarea() {
@@ -25,9 +27,9 @@ require 'BDConeccion.php';
 
  		$this->coneccion->conectar();
 
- 		$texto = 'INSERT INTO ejercicio (Arbol, Descripcion, IdTipo, FechaLimite) VALUES ("'.$this->arbol.'","'.$this->descripcion.'",'.$this->idtipo.',"'.$this->fecha.'")';
+ 		//$texto = 'INSERT INTO ejercicio (descripcion, recorridoBFS, recorridoDFS, tipoEjercicio) VALUES ("'.$this->arbol.'","'.$this->descripcion.'",'.$this->idtipo.',"'.$this->fecha.'")';
 
- 		$resultado = $this->coneccion->consulta('INSERT INTO ejercicio (Arbol, Descripcion, IdTipo, FechaLimite) VALUES ("'.$this->arbol.'","'.$this->descripcion.'",'.$this->idtipo.',"'.$this->fecha.'")');
+ 		$resultado = $this->coneccion->consulta('INSERT INTO ejercicio (descripcion, recorridoBFS, recorridoDFS, tipoEjercicio) VALUES ("'.$this->descripcion.'","'.$this->recorridoBFS.'","'.$this->recorridoDFS.'",'.$this->tipoEjercicio.')');
  	}
 
  	public function listaTareas() {

@@ -47,8 +47,13 @@
                               <div class="col-md-6">
 
                                   <div class="form-group">
-                                      <label for="">Arbol</label>
-                                      <input type="text" class="form-control"  name="arbol" id="" placeholder="Input field">
+                                      <label for="">Recorrido DFS</label>
+                                      <input type="text" class="form-control"  name="recorridodfs" id="" placeholder="Input field">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="">Recorrido BFS</label>
+                                      <input type="text" class="form-control"  name="recorridobfs" id="" placeholder="Input field">
                                   </div>
 
                                   <div class="form-group">
@@ -59,7 +64,7 @@
                                           <option value="">primero</option>
                                       </select> -->
                                         
-                                      <select name="idtipo" id="idtipo" class="form-control">
+                                      <select name="tipoEjercicio" id="idtipo" class="form-control">
                                             <?php
                                                 require '../modelo/Tipo.php';
 
@@ -75,7 +80,7 @@
 
                                                 while ( $tipo = mysql_fetch_array($tipos)){
 
-                                                      echo "<option value='".$tipo['IdTipo']."'> ". $tipo['NombreTipo']."</option>";
+                                                      echo "<option value='".$tipo['tipoEjercicioID']."'> ". $tipo['tipo']."</option>";
 
                                                 }
 

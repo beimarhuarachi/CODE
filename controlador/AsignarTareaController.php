@@ -2,13 +2,18 @@
 	require '../modelo/Asignacion.php';
 
 
-	$idtipo = $_POST['idtipo'];
+	$tipoEjercicio = $_POST['tipoEjercicio'];
 	$descripcion = $_POST['descripcion'];
+
 	$fecha = $_POST['fechalimite'];
-	$arbol = $_POST['arbol'];
 
+	$recorridobfs = $_POST['recorridobfs'];
+	$recorridodfs = $_POST['recorridodfs'];
 
-	$asignacion = new Asignacion($idtipo, $descripcion, $fecha, $arbol);
+	$asignacion = new Asignacion($tipoEjercicio, $descripcion, $fecha, $recorridobfs, $recorridodfs);
+// 
+	// echo $recorridodfs;
+	// echo $recorridobfs;
 
 	$asignacion->agregarTarea();
 
