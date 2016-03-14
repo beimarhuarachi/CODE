@@ -37,3 +37,38 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+.panel-box{
+  padding-top: 10px;
+  background: #0078B1;
+  color: whitesmoke;
+  height: 250px;
+}
+.big-icon{
+  font-size: 6.2em;
+  color: white;
+}
+.big-icon:hover{
+  font-size: 7.2em;
+  color: rgb(249, 214, 35);
+}
+
+.mensaje{
+  background: #F8F8F8;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.mensaje:nth-child(odd) {
+  color: #668394;
+}
+.mensaje:nth-child(even) {
+  color: #6B9466
+}
+.texto-mensaje{
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+.panel-body{
+  color: white;
+}
