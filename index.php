@@ -132,7 +132,8 @@ $usuario = $_SESSION['user'];
       		</div>
       		<div class="col-sm-6">
       			<br><br><br>
-      			<h1>Descripcion de la aplicacion.</h1>
+      			<h1>CODE Trees</h1>
+               <p>Es una aplicacion diseñada para complementar la formacion basica sobre estructuras de datos de tipo arbole, con un minino de conocimientos podras visualizar el comportamiento de estas estructuras de datos, aprender sobre los recorridos basicos sobre arboles y practicar.<br>Registrate y comienza a aprender</p>
       		</div>
       	</div>
       </div>
