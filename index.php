@@ -128,7 +128,7 @@ $usuario = $_SESSION['user'];
       	<div class="row">
       		<div class="col-sm-6">
       			<br><br><br>
-      			<h1>Logo</h1>
+      			<img src="../img/trees.svg">
       		</div>
       		<div class="col-sm-6">
       			<br><br><br>
