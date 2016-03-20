@@ -8,6 +8,7 @@ echo '<script>alert("Necesita iniciar sesion para acceder a esta pagina.");</scr
 echo '<script>window.location="index.php";</script>';
 }
 
+require_once 'conexion.php';
 $log = mysql_query("SELECT arbol FROM ejercicio");
 if(isset($log)){
 	echo '<script>alert("holaa");</script>';

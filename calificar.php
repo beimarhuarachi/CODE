@@ -48,7 +48,32 @@ echo '<script>window.location="index.php";</script>';
 			</div>
 		</nav>
 		<div class="container">
-			
+			<div class="row">
+				<h3>Tareas</h3>
+				<div class="list-group">
+				  <?php
+	                    require 'modelo/Calificacion.php';
+
+	                    $calificacion = new Calificacion();
+
+	                    $tareas = $calificacion->listaTareas();                                
+	                    
+	                ?>
+
+	                <?php
+
+	                    while ( $tarea = mysql_fetch_array($tareas)) {
+	                          echo "<a href='insertar_nota.php?id=".$tarea['id']."' class='list-group-item'> ". $tarea['arbol']."</a>";
+	                    }
+
+	                ?>
+				</div>
+			</div>
+
+			<div class="row">
+				
+                                            
+			</div>
 		</div>
 		
 		
