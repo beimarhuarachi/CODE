@@ -7,6 +7,12 @@ else{
 echo '<script>alert("Necesita iniciar sesion para acceder a esta pagina.");</script>';
 echo '<script>window.location="index.php";</script>';
 }
+
+$id;
+if(isset($_GET["id"])) {
+        $id = $_GET["id"];
+ }
+
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -49,21 +55,21 @@ echo '<script>window.location="index.php";</script>';
 		</nav>
 		<div class="container">
 			<div class="row">
-				<h3>Tareas</h3>
+				<h3>Seleccionar solucion</h3>
 				<div class="list-group">
 				  <?php
 	                    require 'modelo/Calificacion.php';
 
 	                    $calificacion = new Calificacion();
 
-	                    $tareas = $calificacion->listaTareas();                                
+	                    $soluciones = $calificacion->listarCalificaciones($id);                                
 	                    
 	                ?>
 
 	                <?php
 
-	                    while ( $tarea = mysql_fetch_array($tareas)) {
-	                          echo "<a href='soluciones.php?id=".$tarea['id']."' class='list-group-item'> ". $tarea['arbol']."</a>";
+	                    while ( $tarea = mysql_fetch_array($soluciones)) {
+	                          echo "<a href='insertar_nota.php?id=".$tarea['id_solucion']."&id_tarea=".$id."&id_cal=".$tarea['id']."' class='list-group-item'> ". $tarea['id_solucion']."</a>";
 	                    }
 
 	                ?>
@@ -87,3 +93,4 @@ echo '<script>window.location="index.php";</script>';
 		<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 	</body>
 </html>
+
