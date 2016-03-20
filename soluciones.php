@@ -64,7 +64,7 @@ if(isset($_GET["id"])) {
 
 	                <?php
 	                    while ( $tarea = mysql_fetch_array($soluciones)) {
-	                          echo "<a href='insertar_nota.php?id=".$tarea['id_solucion']."&id_tarea=".$id."&id_cal=".$tarea['id']."' class='list-group-item'> ". $tarea['id_solucion']."</a>";
+	                          echo "<a href='insertar_nota.php?id=".$tarea['id_solucion']."&id_tarea=".$id."&id_cal=".$tarea['id']."' class='list-group-item'> ". $tarea['nombre']."</a>";
 	                    }
 	                ?>
 				</div>
