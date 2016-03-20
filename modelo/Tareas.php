@@ -35,6 +35,20 @@ class Tareas
 			$idT = $ids['id'];
 		}
 		$query = "INSERT INTO `solucion`(`id_tarea`, `id_usuario`, `rec_dfs`, `rec_bfs`) VALUES (".$idT.",".$id.",'".$dfs."','".$bfs."')";
+		//echo $query;
+ 		$resultado = $this->coneccion->consulta($query);
+ 		$query = "SELECT `id` FROM `solucion` WHERE id_usuario = ".$id." AND id_tarea = '".$idT."'";
+ 		$resultado = $this->coneccion->consulta($query);
+ 		while ($ids = mysql_fetch_array($resultado)) {
+			$idSolucion = $ids['id'];
+		}
+ 		$this->agregarRegistroNota($id, null, $idT, $idSolucion);
+ 	}
+
+ 	public function agregarRegistroNota($idUsuario, $nota, $idEjercicio, $idSolucion) {
+ 		$this->coneccion = new BDConeccion();
+ 		$this->coneccion->conectar();
+ 		$query = "INSERT INTO `calificacion`(`id_usuario`, `nota`, `id_ejercicio`, `id_solucion`) VALUES (".$idUsuario.",null,".$idEjercicio.",".$idSolucion.")";
 		echo $query;
  		$resultado = $this->coneccion->consulta($query);
  	}
