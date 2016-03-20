@@ -14,7 +14,7 @@ class BDConeccion {
    {
       if(!isset($this->conexion))
       {
-        $this->conexion = (mysql_connect("localhost","root","")) or die(mysql_error());
+        $this->conexion = (mysql_connect("localhost","root","root")) or die(mysql_error());
         mysql_select_db("codebd",$this->conexion) or die(mysql_error());
       }
    } 

@@ -7,9 +7,6 @@ else{
 echo '<script>alert("Necesita iniciar sesion para acceder a esta pagina.");</script>';
 echo '<script>window.location="index.php";</script>';
 }
-
-require_once 'conexion.php';
-$cadenaArbol = $_GET['arbol'];
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -20,7 +17,6 @@ $cadenaArbol = $_GET['arbol'];
 		<title>CODE</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/styles.css?update=12102006">
-		
 	</head>
 	<body>
 		<nav role="navigation" class="navbar navbar-default">
@@ -50,35 +46,39 @@ $cadenaArbol = $_GET['arbol'];
 				</ul>
 			</div>
 		</nav>
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-sm-7">
-					<canvas id="myCanvas" width="732" height="500" style="border:1px solid #d3d3d3;">
-					Your browser does not support the HTML5 canvas tag.</canvas>
-				</div>
-				<div class="col-sm-5">
-					<form action="enviarTarea.php" method="POST" role="form">
-						<div class="form-group">
-							<?php echo '<input name="arbol" type="text" style="display:none" class="form-control" id="consola" value="'.$cadenaArbol.'">' ?>
-							<label>Respuesta DFS:</label>
-							<input name="dfs" type="text" class="form-control" id="consola">
-							<label>Respuesta BFS:</label>
-							<input name="bfs" type="text" class="form-control" id="consola">
-						</div>
-						<button type="submit" class="btn btn-primary">Enviar</button>
-					</form>
+				<h3>Tareas</h3>
+				<div class="list-group">
+				  <?php
+	                    require 'modelo/Tareas.php';
+
+	                    $tarea1 = new Tareas();
+	                    $tareas = $tarea1->listaTareas($usuario);
+	                ?>
+
+	                <?php
+	                    while ( $tarea = mysql_fetch_array($tareas)) {
+	                          echo "<a href='tarea.php?arbol=".$tarea['arbol']."' class='list-group-item'> ". $tarea['arbol']."</a>";
+	                    }
+
+	                ?>
 				</div>
 			</div>
+
+			<div class="row">
+				
+                                            
+			</div>
 		</div>
+		
+		
 		<footer class="footer">
 			<div class="container">
 				<p class="text-muted">® CODE Cursos Online Docente Estudiantil</p>
 			</div>
 		</footer>
 		<script src="js/events.js?update=12102006"></script>
-		<script type="text/javascript">
-			addArbol();
-		</script>
 		<script src="js/jquery-2.2.1.min.js"></script>
 		<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 	</body>

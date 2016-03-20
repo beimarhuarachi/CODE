@@ -39,7 +39,7 @@ if($_SESSION['rol']==1){
             <ul class="nav navbar-nav">
                <li ><a href="index.php">Inicio</a></li>               
                <li class="active"><a href="estudiante.php">Panel</a></li>
-               <li ><a href="tarea.php">Tarea</a></li>
+               <li ><a href="listaTareas.php">Tarea</a></li>
                <li ><a href="correo.php">Correo</a></li>
                <li ><a href="practicar.php">Practicar</a></li>
             </ul>
@@ -55,7 +55,7 @@ if($_SESSION['rol']==1){
          <div class="row text-center">
             <div class="col-sm-4 tarea panel-box">
                <h2>TAREA</h2>
-               <a href="tarea.php"><span class="big-icon glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
+               <a href="listaTareas.php"><span class="big-icon glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>
                <p>En esta seccion podras realizar las tareas que te asigna el docente.</p>
             </div>
             <div class="col-sm-4 correo panel-box">

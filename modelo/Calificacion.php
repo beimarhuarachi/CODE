@@ -25,13 +25,17 @@ class Calificacion
 
  	public function listarCalificaciones($idTarea) {
  		$this->coneccion = new BDConeccion();
-
  		$this->coneccion->conectar();
-
  		$resultado = $this->coneccion->consulta("select * from calificacion where id_ejercicio = ".$idTarea);
-
  		//$this->coneccion->disconnect();
+ 		return $resultado;
+ 	}
 
+ 	public function listarSoluciones($idTarea) {
+ 		$this->coneccion = new BDConeccion();
+ 		$this->coneccion->conectar();
+ 		$resultado = $this->coneccion->consulta("select * from solucion where id_tarea = ".$idTarea);
+ 		//$this->coneccion->disconnect();
  		return $resultado;
  	}
 
