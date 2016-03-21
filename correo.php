@@ -67,7 +67,7 @@ echo '<script>window.location="index.php";</script>';
          $lista_msj = mysql_query("SELECT id_estudiante, id_profesor, mensaje, fecha FROM conversacion WHERE id_estudiante='$id_user'");
          }
          else{
-         $lista_msj = mysql_query("SELECT id, id_estudiante, id_profesor, mensaje, fecha FROM conversacion");
+         $lista_msj = mysql_query("SELECT id, id_estudiante, id_profesor, mensaje, fecha FROM conversacion ORDER BY fecha DESC");
          }
          if(mysql_num_rows($lista_msj) > 0){
          while ($fila = mysql_fetch_assoc($lista_msj)){
