@@ -36,7 +36,7 @@ echo '<script>window.location="index.php";</script>';
                <li ><a href="index.php">Inicio</a></li>
                <?php if($_SESSION['rol']==2){?>
                <li ><a href="estudiante.php">Panel</a></li>
-               <li ><a href="tarea.php">Tarea</a></li>
+               <li ><a href="listaTareas.php">Tarea</a></li>
                <li class="active"><a href="correo.php">Correo</a></li>
                <li ><a href="practicar.php">Practicar</a></li>
                <?php }
