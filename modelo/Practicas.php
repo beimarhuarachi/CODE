@@ -15,14 +15,11 @@ class Tareas
  		$this->coneccion = new BDConeccion();
 
  		$this->coneccion->conectar();
- 		$idUsuario = $this->coneccion->consulta("SELECT id from usuario where nombre = '".$usuario."'");
- 		while ($ids = mysql_fetch_array($idUsuario)) {
-			$id = $ids['id'];
-		}
- 		$resultado = $this->coneccion->consulta("SELECT * FROM ejercicio WHERE id NOT IN (SELECT id_tarea FROM solucion WHERE id_usuario = ".$id.") ");
+ 		$resultado = $this->coneccion->consulta("SELECT * FROM practica");
  		//$this->coneccion->disconnect();
  		return $resultado;
  	}
+ 	/*
  	public function presentarSolucion($usuario, $arbol, $dfs, $bfs) {
  		$this->coneccion = new BDConeccion();
  		$this->coneccion->conectar();
@@ -43,23 +40,7 @@ class Tareas
 			$idSolucion = $ids['id'];
 		}
  		$this->agregarRegistroNota($id, null, $idT, $idSolucion);
- 	}
-
- 	public function agregarRegistroNota($idUsuario, $nota, $idEjercicio, $idSolucion) {
- 		$this->coneccion = new BDConeccion();
- 		$this->coneccion->conectar();
- 		$query = "INSERT INTO `calificacion`(`id_usuario`, `nota`, `id_ejercicio`, `id_solucion`) VALUES (".$idUsuario.",'-1',".$idEjercicio.",".$idSolucion.")";
-		echo $query;
- 		$resultado = $this->coneccion->consulta($query);
- 	}
-
- 	public function recorridos($arbol) {
- 		$this->coneccion = new BDConeccion();
- 		$this->coneccion->conectar();
- 		$query = "SELECT * FROM `practica` WHERE arbol = '".$arbol."'";
- 		$resultado = $this->coneccion->consulta($query);
- 		return $resultado;
- 	}
+ 	}*/
 }
 
 
