@@ -56,7 +56,8 @@ echo '<script>window.location="index.php";</script>';
          </div>
       </nav>
       <div class="container">
-         <h1 class="text-center">Correo</h1>         
+         <h1 class="text-center">Correo</h1>   
+          
          <?php
          include 'conexion.php';
          $lista_msj;
@@ -78,6 +79,7 @@ echo '<script>window.location="index.php";</script>';
          $user2 = mysql_result($user2, 0);
          $mensaje = $fila['mensaje'];
          $fecha = $fila['fecha'];
+         $fecha_actual = date('Y-m-d');
          echo '<div class="row mensaje">
             <div class="col-sm-4">
                <h4>Docente: '.$user1.'</h4>
@@ -91,7 +93,11 @@ echo '<script>window.location="index.php";</script>';
             <div class="row">
                <p class="texto-mensaje">'.$mensaje.'</p>
             </div>
-         </div>';
+            <div class="row">
+               <p class="texto-mensaje"><a href="mensaje.php?id_estudiante='.$id_user2.'&id_profesor='.$id_user1.'&fechaActual='.$fecha_actual.'&estudiante='.$user2.'&profesor='.$user1.'">Responder</a></p>
+            </div>
+         </div>
+         ';
          }
          }
          else{
