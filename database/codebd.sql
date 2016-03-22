@@ -1,26 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 21, 2016 at 06:47 PM
--- Server version: 5.5.42
--- PHP Version: 5.6.10
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-03-2016 a las 04:14:36
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.5.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `codebd2`
+-- Base de datos: `codebd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `calificacion`
+-- Estructura de tabla para la tabla `calificacion`
 --
 
-CREATE TABLE `calificacion` (
+CREATE TABLE IF NOT EXISTS `calificacion` (
   `id` int(11) NOT NULL,
   `id_usuario` varchar(255) NOT NULL,
   `nota` varchar(255) DEFAULT NULL,
@@ -29,24 +29,24 @@ CREATE TABLE `calificacion` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `calificacion`
+-- Volcado de datos para la tabla `calificacion`
 --
 
 INSERT INTO `calificacion` (`id`, `id_usuario`, `nota`, `id_ejercicio`, `id_solucion`) VALUES
-(0, '4', '8', '10', '0'),
-(1, '8', '0', '9', '0'),
-(3, '2', '-1', '9', '0'),
-(4, '2', '-1', '10', '0'),
-(5, '2', '-1', '11', '0'),
-(6, '2', '-1', '12', '0');
+(1, '8', '-1', '9', '1'),
+(2, '2', '-1', '11', '2'),
+(3, '2', '-1', '9', '3'),
+(4, '4', '-1', '11', '4'),
+(5, '4', '-1', '12', '5'),
+(6, '4', '-1', '10', '6');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conversacion`
+-- Estructura de tabla para la tabla `conversacion`
 --
 
-CREATE TABLE `conversacion` (
+CREATE TABLE IF NOT EXISTS `conversacion` (
   `id` int(11) NOT NULL,
   `id_estudiante` int(11) DEFAULT NULL,
   `id_profesor` int(11) DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `conversacion` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `conversacion`
+-- Volcado de datos para la tabla `conversacion`
 --
 
 INSERT INTO `conversacion` (`id`, `id_estudiante`, `id_profesor`, `mensaje`, `fecha`) VALUES
@@ -65,10 +65,10 @@ INSERT INTO `conversacion` (`id`, `id_estudiante`, `id_profesor`, `mensaje`, `fe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ejercicio`
+-- Estructura de tabla para la tabla `ejercicio`
 --
 
-CREATE TABLE `ejercicio` (
+CREATE TABLE IF NOT EXISTS `ejercicio` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(255) DEFAULT NULL,
   `arbol` varchar(255) DEFAULT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `ejercicio` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ejercicio`
+-- Volcado de datos para la tabla `ejercicio`
 --
 
 INSERT INTO `ejercicio` (`id`, `descripcion`, `arbol`, `rec_dfs`, `rec_bfs`) VALUES
@@ -89,10 +89,10 @@ INSERT INTO `ejercicio` (`id`, `descripcion`, `arbol`, `rec_dfs`, `rec_bfs`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `practica`
+-- Estructura de tabla para la tabla `practica`
 --
 
-CREATE TABLE `practica` (
+CREATE TABLE IF NOT EXISTS `practica` (
   `id` int(11) NOT NULL,
   `arbol` varchar(255) DEFAULT NULL,
   `rec_dfs` varchar(255) DEFAULT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `practica` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `practica`
+-- Volcado de datos para la tabla `practica`
 --
 
 INSERT INTO `practica` (`id`, `arbol`, `rec_dfs`, `rec_bfs`) VALUES
@@ -121,38 +121,36 @@ INSERT INTO `practica` (`id`, `arbol`, `rec_dfs`, `rec_bfs`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `solucion`
+-- Estructura de tabla para la tabla `solucion`
 --
 
-CREATE TABLE `solucion` (
+CREATE TABLE IF NOT EXISTS `solucion` (
   `id` int(11) NOT NULL,
   `id_tarea` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `rec_dfs` varchar(255) DEFAULT NULL,
   `rec_bfs` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `solucion`
+-- Volcado de datos para la tabla `solucion`
 --
 
 INSERT INTO `solucion` (`id`, `id_tarea`, `id_usuario`, `rec_dfs`, `rec_bfs`) VALUES
-(0, 9, 2, 'respuesta1', 'respuesta1'),
-(0, 9, 4, '1,2,3,4,5', '1,2,3,4,6,7'),
-(0, 9, 8, '4,9,10,5,6,2,11,12,7,8,3,1,0', '0,1,2,3,4,5,6,7,8,9,10,11,12'),
-(0, 10, 2, 'respuesta2', 'respuesta2'),
-(0, 10, 4, '5', '0'),
-(0, 10, 8, '1,2,3,4,5,6,7,8', '3,4,5,6,7,8,9'),
-(0, 11, 2, 'respuesta3', 'respuesta3'),
-(0, 12, 2, 'respuesta4', 'respuesta4');
+(1, 9, 8, '1,2,3,4,5,5,,3,24', '1,,3,4,4,5,5'),
+(2, 11, 2, '1,2,3,4,0', '0,1,2,3,4'),
+(3, 9, 2, '1,2,3,4,5,6,7,8,9', '0,1,2,3,4,5'),
+(4, 11, 4, '1,2,3,4,5,0', '0,1,2,3,4'),
+(5, 12, 4, '1,2,3,4,5,6,7,8,9', '0,1,2,3,4,5,,6,7,8'),
+(6, 10, 4, '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,0', '0,17,15,13,12,14,15');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellido` varchar(255) DEFAULT NULL,
@@ -161,7 +159,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `ci`, `rol`) VALUES
@@ -171,71 +169,76 @@ INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `ci`, `rol`) VALUES
 (8, 'ricardo', 'soliz', '88', 2);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `calificacion`
+-- Indices de la tabla `calificacion`
 --
 ALTER TABLE `calificacion`
   ADD PRIMARY KEY (`id`,`id_usuario`);
 
 --
--- Indexes for table `conversacion`
+-- Indices de la tabla `conversacion`
 --
 ALTER TABLE `conversacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ejercicio`
+-- Indices de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `practica`
+-- Indices de la tabla `practica`
 --
 ALTER TABLE `practica`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `solucion`
+-- Indices de la tabla `solucion`
 --
 ALTER TABLE `solucion`
   ADD PRIMARY KEY (`id`,`id_tarea`,`id_usuario`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`,`nombre`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `calificacion`
+-- AUTO_INCREMENT de la tabla `calificacion`
 --
 ALTER TABLE `calificacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `conversacion`
+-- AUTO_INCREMENT de la tabla `conversacion`
 --
 ALTER TABLE `conversacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `ejercicio`
+-- AUTO_INCREMENT de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT for table `practica`
+-- AUTO_INCREMENT de la tabla `practica`
 --
 ALTER TABLE `practica`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `solucion`
+--
+ALTER TABLE `solucion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
