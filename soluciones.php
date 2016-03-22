@@ -70,10 +70,60 @@ if(isset($_GET["id"])) {
 				</div>
 			</div>
 
-			<div class="row">
-				
-                                            
+			<div class="row" id="printable">
+				<h3>Lista de notas</h3>
+                <?php
+	                    //require 'modelo/Calificacion.php';
+	                    //$calificacion = new Calificacion();
+	                    $notas = $calificacion->listarNotasProcesadas($id);                                
+	                    
+	                ?>    
+	            <table class="table table-hover">
+	            	<thead>
+	            		<tr>
+	            			<th>Nombre</th>
+	            			<th>Nota</th>
+	            		</tr>
+	            	</thead>
+	            	<tbody>
+		            	 <?php
+		                    while ( $nota = mysql_fetch_array($notas)) {
+		                    	echo '<tr>';
+		                        echo "<td>".$nota['nombre']."</td>";
+		                        echo "<td>".$nota['nota']."</td>";
+		                        echo '</tr>';
+		                    }
+		                ?>
+	            		<tr>
+	            			<td></td>
+	            		</tr>
+	            	</tbody>
+	            </table> 
+	                                   
 			</div>
+
+			<div class="row">
+				<button type="button" class="btn btn-info" onclick="printDiv('printable')">Imprimir</button>
+			</div>
+
+			<script>
+			function printDiv(divID) {
+				console.log("fdsa");
+		        //Get the HTML of div
+		        var divElements = document.getElementById(divID).innerHTML;
+		        //Get the HTML of whole page
+		        var oldPage = document.body.innerHTML;
+		        //Reset the page's HTML with div's HTML only
+		        document.body.innerHTML = 
+		          "<html><head><title></title></head><body>" + 
+		          divElements + "</body>";
+		        //Print Page
+		        window.print();
+		        //Restore orignal HTML
+		        document.body.innerHTML = oldPage;
+
+		    }
+			</script>
 		</div>
 		
 		

@@ -68,13 +68,13 @@ $solucion = mysql_fetch_array($calificacion->obtenerSolucion($id_solucion));
 		</nav>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<h3>Respuesta Estudiante <?php echo $id_cal;?></h3>
+				<div class="col-md-12">
+					<h3>Respuesta Estudiante</h3>
 					<h5>Recorrido DFS : <?php echo $solucion['rec_dfs'];?></h5> 
 					<h5>Recorrido BFS : <?php echo $solucion['rec_bfs'];?></h5>
 					
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<h3>Respuesta Correcta</h3>
 					<h5>Recorrido DFS : <?php echo $tarea['rec_dfs'];?></h5> 
 					<h5>Recorrido BFS : <?php echo $tarea['rec_bfs'];?></h5> 
@@ -88,7 +88,7 @@ $solucion = mysql_fetch_array($calificacion->obtenerSolucion($id_solucion));
 						<input type="hidden" name="id_cal" class="form-control" value='<?php echo $id_cal;?>'>
 						<div class="form-group">
 							<label for="">Nota</label>
-							<input type="number" max="10" min="0" class="form-control" name="nota">
+							<input type="number" max="10" min="0" class="form-control" name="nota" required>
 						</div>
 						<button type="submit" class="btn btn-primary">Guardar</button>
 					</form>
