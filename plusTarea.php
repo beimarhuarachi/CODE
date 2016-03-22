@@ -7,6 +7,9 @@ else{
 echo '<script>alert("Necesita iniciar sesion para acceder a esta pagina.");</script>';
 echo '<script>window.location="index.php";</script>';
 }
+$arbol = $_POST['arbol'];
+$dfs = $_POST['dfs'];
+$bfs = $_POST['bfs'];
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -58,7 +61,7 @@ echo '<script>window.location="index.php";</script>';
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="">Informacion Arbol</label>
-									<textarea name="descripcion" id="input" name="arbol" class="form-control" rows="3" required="required"></textarea>
+									<textarea name="descripcion" id="input" name="arbol" class="form-control" rows="3" required="required" ><?php echo $arbol;  ?></textarea>
 								</div>
 								
 								<div class="form-group">
@@ -70,11 +73,11 @@ echo '<script>window.location="index.php";</script>';
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="">Recorrido DFS</label>
-									<input type="text" class="form-control"  name="recorridodfs" placeholder="Input field">
+									<input type="text" class="form-control"  name="recorridodfs" placeholder="Input field" value="<?php echo $dfs;  ?>">
 								</div>
 								<div class="form-group">
 									<label for="">Recorrido BFS</label>
-									<input type="text" class="form-control"  name="recorridobfs" placeholder="Input field">
+									<input type="text" class="form-control"  name="recorridobfs" placeholder="Input field" value="<?php echo $bfs;  ?>">
 								</div>
 								<!--
 								<div class="form-group">
